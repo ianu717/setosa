@@ -1,10 +1,7 @@
 flask
-mangum
 catboost
 scikit-learn
-numpy
 pandas
-scipy
 pyarrow
 geohash2
 gunicorn
