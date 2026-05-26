@@ -6,9 +6,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-casualty_df = pd.read_parquet(BASE_DIR / 'data' / 'casualty_replaced.parquet')
-vehicle_df = pd.read_parquet(BASE_DIR / 'data' / 'vehicle_replaced.parquet')
-collision_df = pd.read_parquet(BASE_DIR / 'data' / 'collision_replaced.parquet')
+casualty_df = pd.read_parquet(BASE_DIR / 'data' / 'casualty_cut.parquet')
+vehicle_df = pd.read_parquet(BASE_DIR / 'data' / 'vehicle_cut.parquet')
+collision_df = pd.read_parquet(BASE_DIR / 'data' / 'collision_cut.parquet')
 collision_indexes_df = pd.read_parquet(BASE_DIR / 'data' / 'collision_indexes.parquet')
 
 def save_pickle(path: Path, data):
@@ -39,7 +39,7 @@ def get_day_period_from_time(time: str):
         return 'night'
 
 def generate_random_collision():
-    collision_index = collision_indexes_df.sample(1)[0].iloc[0]
+    collision_index = '2021010347625'#collision_indexes_df.sample(1)[0].iloc[0]
     casualties = casualty_df[casualty_df['collision_index'] == collision_index]
     vehicles = vehicle_df[vehicle_df['collision_index'] == collision_index]
     collisions = collision_df[collision_df['collision_index'] == collision_index]

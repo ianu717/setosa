@@ -26,10 +26,12 @@ def predict():
     return response
 
 def create_app() -> Flask:
-    app = Flask(__name__)
-    app.register_blueprint(api_bp, url_prefix='/api/v1')
+    app_1 = Flask(__name__)
+    app_1.register_blueprint(api_bp, url_prefix='/api/v1')
     #Swagger(app)
-    return app
+    return app_1
+
+app = create_app()
 
 if __name__ == '__main__':
-    create_app().run(debug=False)
+    app.run(debug=False)
