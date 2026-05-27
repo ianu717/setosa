@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 casualty_df = pd.read_parquet(BASE_DIR / 'data' / 'casualty_cut.parquet')
 vehicle_df = pd.read_parquet(BASE_DIR / 'data' / 'vehicle_cut.parquet')
 collision_df = pd.read_parquet(BASE_DIR / 'data' / 'collision_cut.parquet')
-collision_indexes_df = pd.read_parquet(BASE_DIR / 'data' / 'collision_indexes.parquet')
+collision_indexes_df = pd.read_parquet(BASE_DIR / 'data' / 'indexes_cut.parquet')
 
 def save_pickle(path: Path, data):
     with open(path, "wb") as f:
