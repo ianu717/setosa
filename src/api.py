@@ -1,6 +1,6 @@
 import pandas as pd
 
-from flask import Flask, jsonify, Blueprint
+from flask import Flask, jsonify, Blueprint, request
 from preprocessing import preprocess
 from service import SeverityInferenceService
 from utils import generate_random_collision
@@ -18,7 +18,7 @@ def get_data():
 
 @api_bp.route('/predict', methods=['POST'])
 def predict():
-    data = get_data()#request.get_json() descomentar cuando el front envie bien los datos
+    data = request.get_json()
     model_input = pd.DataFrame(data, index=[0])
 
     response = severity_inference_service.predict(model_input)
